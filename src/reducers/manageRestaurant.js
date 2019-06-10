@@ -6,7 +6,7 @@ export default function manageRestaurants(state = {
   restaurants: [],
   reviews: []
 }, action) {
-  console.log("action: ", action.type);
+  console.log("action: ", action);
   switch(action.type) {
     case 'ADD_RESTAURANT':
 
@@ -27,7 +27,7 @@ export default function manageRestaurants(state = {
       return {...state, reviews: state.reviews.concat(rev)}
 
     case 'DELETE_REVIEW':
-      return {...state, reviews: state.reviews.filter(rev => rev.id !== action.payload)}
+      return {...state, reviews: state.reviews.filter(rev => rev.restaurantId !== action.payload)}
     default:
       return state;
   }
